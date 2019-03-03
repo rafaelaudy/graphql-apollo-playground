@@ -4,12 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "graphql-yoga": "^1.17.4"
+    "graphql-yoga": "^1.17.4",
+    "prisma-client-lib": "^1.27.3"
   },
   "devDependencies": {
     "prettier": "1.16.4"
   },
   "scripts": {
-    "live": "nodemon src/index.js" 
+    "live": "nodemon src/index.js"
   }
 }
