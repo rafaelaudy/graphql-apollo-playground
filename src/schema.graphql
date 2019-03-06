@@ -11,4 +11,12 @@ type Link {
   id: ID!
   description: String!
   url: String!
+  postedBy: User
+}
+
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  links: [Link!]!
 }
