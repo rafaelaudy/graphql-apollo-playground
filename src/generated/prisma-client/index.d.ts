@@ -163,6 +163,8 @@ export type UserOrderByInput =
   | "id_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
+  | "name_ASC"
+  | "name_DESC"
   | "email_ASC"
   | "email_DESC"
   | "password_ASC"
@@ -256,6 +258,20 @@ export interface UserWhereInput {
   createdAt_lte?: DateTimeInput;
   createdAt_gt?: DateTimeInput;
   createdAt_gte?: DateTimeInput;
+  name?: String;
+  name_not?: String;
+  name_in?: String[] | String;
+  name_not_in?: String[] | String;
+  name_lt?: String;
+  name_lte?: String;
+  name_gt?: String;
+  name_gte?: String;
+  name_contains?: String;
+  name_not_contains?: String;
+  name_starts_with?: String;
+  name_not_starts_with?: String;
+  name_ends_with?: String;
+  name_not_ends_with?: String;
   email?: String;
   email_not?: String;
   email_in?: String[] | String;
@@ -309,6 +325,7 @@ export interface UserCreateOneWithoutLinksInput {
 }
 
 export interface UserCreateWithoutLinksInput {
+  name: String;
   email: String;
   password: String;
 }
@@ -329,6 +346,7 @@ export interface UserUpdateOneWithoutLinksInput {
 }
 
 export interface UserUpdateWithoutLinksDataInput {
+  name?: String;
   email?: String;
   password?: String;
 }
@@ -344,6 +362,7 @@ export interface LinkUpdateManyMutationInput {
 }
 
 export interface UserCreateInput {
+  name: String;
   email: String;
   password: String;
   links?: LinkCreateManyWithoutPostedByInput;
@@ -360,6 +379,7 @@ export interface LinkCreateWithoutPostedByInput {
 }
 
 export interface UserUpdateInput {
+  name?: String;
   email?: String;
   password?: String;
   links?: LinkUpdateManyWithoutPostedByInput;
@@ -466,6 +486,7 @@ export interface LinkUpdateManyDataInput {
 }
 
 export interface UserUpdateManyMutationInput {
+  name?: String;
   email?: String;
   password?: String;
 }
@@ -524,6 +545,7 @@ export interface LinkSubscription
 export interface User {
   id: ID_Output;
   createdAt: DateTimeOutput;
+  name: String;
   email: String;
   password: String;
 }
@@ -531,6 +553,7 @@ export interface User {
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
   links: <T = FragmentableArray<Link>>(
@@ -551,6 +574,7 @@ export interface UserSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
   links: <T = Promise<AsyncIterator<LinkSubscription>>>(
@@ -791,6 +815,7 @@ export interface UserSubscriptionPayloadSubscription
 export interface UserPreviousValues {
   id: ID_Output;
   createdAt: DateTimeOutput;
+  name: String;
   email: String;
   password: String;
 }
@@ -800,6 +825,7 @@ export interface UserPreviousValuesPromise
     Fragmentable {
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
+  name: () => Promise<String>;
   email: () => Promise<String>;
   password: () => Promise<String>;
 }
@@ -809,6 +835,7 @@ export interface UserPreviousValuesSubscription
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  name: () => Promise<AsyncIterator<String>>;
   email: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
 }
