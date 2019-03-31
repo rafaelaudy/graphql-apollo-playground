@@ -28,3 +28,7 @@ type User {
   password: String!
   links: [Link!]!
 }
+
+type Subscription {
+  newLink: Link
+}
