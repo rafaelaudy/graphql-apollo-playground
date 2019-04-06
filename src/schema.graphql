@@ -12,6 +12,7 @@ type Mutation {
 
 type Subscription {
   newLink: Link
+  newVote: Vote
 }
 
 type AuthPayload {
@@ -25,6 +26,7 @@ type User {
   email: String!
   password: String!
   links: [Link!]!
+  votes: [Vote!]!
 }
 
 type Link {
@@ -32,7 +34,7 @@ type Link {
   description: String!
   url: String!
   postedBy: User
-  votes: [Votes!]!
+  votes: [Vote!]!
 }
 
 type Vote {
