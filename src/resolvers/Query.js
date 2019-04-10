@@ -1,15 +1,15 @@
-function feed(parent, args, context, info) {
-  const where = args.filter
+function feed(parent, args, context) {
+  const { skip, first, filter } = args;
+  const where = filter
     ? {
-        OR: [
-          { description_contains: args.filter },
-          { url_contains: args.filter }
-        ]
+        OR: [{ description_contains: filter }, { url_contains: filter }]
       }
     : {};
 
   return context.prisma.links({
-    where
+    where,
+    first,
+    skip
   });
 }
 
