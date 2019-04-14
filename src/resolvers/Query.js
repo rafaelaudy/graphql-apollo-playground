@@ -1,5 +1,5 @@
 function feed(parent, args, context) {
-  const { skip, first, filter } = args;
+  const { skip, first, filter, orderBy } = args;
   const where = filter
     ? {
         OR: [{ description_contains: filter }, { url_contains: filter }]
@@ -9,7 +9,8 @@ function feed(parent, args, context) {
   return context.prisma.links({
     where,
     first,
-    skip
+    skip,
+    orderBy
   });
 }
 
