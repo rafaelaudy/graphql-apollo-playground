@@ -7,6 +7,24 @@ I am playing with some GraphQL server implementation using the followinh excelen
 
 https://www.howtographql.com/graphql-js/
 
+The UI is on this repo:
+
+https://github.com/rafaelaudy/graphql-apollo-react
+
+# How to start:
+
+You will first need to generate and deploy the database with:
+
+```
+prisma deploy
+```
+
+Then you can start the server with:
+
+```
+yarn live
+```
+
 ## Playground queries examples:
 
 ### Signup
